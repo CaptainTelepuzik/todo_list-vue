@@ -1,26 +1,33 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="dark-theme full-screen App__wrapper "><h1>Первое приложение!</h1>
+        <p>
+            <!-- используем компонент router-link для навигации -->
+            <!-- входной параметр `to` определяет URL для перехода -->
+            <!-- `<router-link>` по умолчанию отображается тегом `<a>` -->
+            <router-link to="/login">Перейти к Login</router-link>
+            <router-link to="/">Перейти к Home</router-link>
+
+        </p>
+        <!-- отображаем тут компонент, для которого совпадает маршрут -->
+        <router-view></router-view>
+    </div>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+
+    export default {
+        name: 'App',
+        components: {}
+    }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
+<style src="./assets/style.less" lang="less"></style>
+<style lang="less">
+    .App__wrapper {
+        background: var(--main-background-color);
+    }
 </style>
+
