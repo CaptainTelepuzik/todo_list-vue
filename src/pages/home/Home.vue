@@ -7,7 +7,8 @@
         name: "HomePage",
         data(){
             return {
-                userInfo: AuthHelpers.getUserInfo()
+                userInfo: AuthHelpers.getUserInfo(),
+                logOut: AuthHelpers.logout
             }
         }
     }

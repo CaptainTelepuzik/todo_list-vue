@@ -1,6 +1,8 @@
 <div class="Home__wrapper full-size flex flex-center">
     <div class="Home__header flex flex-column">
     <button>+</button>
+        <button
+        @click="logOut()">Выйти</button>
     <div class="User_name__wrapper">{{userInfo.surname}} {{userInfo.name}}</div>
     </div>
 </div>
