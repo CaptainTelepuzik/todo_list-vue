@@ -1,0 +1,28 @@
+<div class="LoginPage__wrapper full-size flex flex-center">
+    <div class="LoginPage__form flex flex-center flex-column padding__container-l">
+        <div class="full-size flex flex-center flex-column" v-if="isLoginType">
+            <h1 class="margin__bottom-l">Войти</h1>
+            <input type="text" class="margin__bottom-m full-width" v-model="loginForm.login"
+                   placeholder="Логин" name="login">
+            <input type="text" class="margin__bottom-m full-width" v-model="loginForm.password"
+                   placeholder="Пароль" name="password">
+            <button @click.prevent="_login" class="margin__bottom-xs full-width">Войти</button>
+            <a href="#" @click.prevent="_choseType">Регистрация</a>
+        </div>
+        <div class="full-size flex flex-center flex-column" v-else>
+            <h1 class="margin__bottom-l">Регистрация</h1>
+            <input type="text" class="margin__bottom-m full-width" v-model="registrationForm.surname"
+                   placeholder="Фамилия" name="surname">
+            <input type="text" class="margin__bottom-m full-width" v-model="registrationForm.name"
+                   placeholder="Имя" name="name">
+            <input type="text" class="margin__bottom-m full-width" v-model="registrationForm.second_name"
+                   placeholder="Отчество" name="second_name">
+            <input type="text" class="margin__bottom-m full-width" v-model="registrationForm.login"
+                   placeholder="Логин" name="login">
+            <input type="text" class="margin__bottom-m full-width" v-model="registrationForm.password"
+                   placeholder="Пароль" name="password">
+            <button @click.prevent="_registration" class="margin__bottom-xs full-width">Зарегистрироваться</button>
+            <a href="#" @click.prevent="_choseType">Вход</a>
+        </div>
+    </div>
+</div>

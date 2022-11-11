@@ -1,24 +1,26 @@
-const axios = require('axios');
+import {default as axios} from 'axios';
 /**
- *  Класс стандартизированных запросов
+ * Класс стандартизированых запросов
  */
-export default class HttpRequest{
+export default class HttpRequest {
     /**
-     * Стандратизированнная Отправка запросов на БЛ
+     * Стандантизированная отправка закпроса на БЛ
+     *
      * @param params Данные для запроса
-     * @param filter Фильтр запроса
-     * @param endpointName Имя конечной точка запроса
-     * @param method Назвавание метода
+     * @param filter Фильтр
+     * @param endpointName Имя конечной точки
+     * @param method Название метода
      * @returns {Promise<{error_text: string, success: boolean}>} Результат с БЛ
      */
     static async sendRequest(params, filter, endpointName, method) {
         let result = {success: false, error_text: ''};
-        if (!endpointName){
-            throw 'Не передана конечная точка запроса'
+
+        if (!endpointName) {
+            throw 'Не передана конечная точка запроса';
         }
 
         if (!method) {
-            throw 'Не передан метод для запроса'
+            throw 'Не передан метод для запроса';
         }
 
         const url = 'http://127.0.0.1:5000/service'
@@ -26,23 +28,20 @@ export default class HttpRequest{
         const requestParams = {
             endpointName,
             method,
-            data:{
+            data: {
                 filter,
                 params
             }
         }
 
-        await axios.post(url, requestParams).then((response)=> {
-
-            result = response.data;
-        })
-
-        .catch(({error})=>{
-            result.error_text = error
-        });
+        await axios.post(url, requestParams)
+            .then((response) => {
+                result = response.data;
+            })
+            .catch(({error}) => {
+                result.error_text = error
+            });
 
         return result;
-
     }
-
 }
