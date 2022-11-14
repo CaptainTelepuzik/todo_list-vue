@@ -2,13 +2,28 @@
 
 <script>
     import {AuthHelpers} from "@/helpers/AuthHelpers";
+    import AddForm from "@/pages/addForm/AddForm";
 
     export default {
         name: "HomePage",
-        data(){
+        components: {AddForm},
+        data() {
             return {
-                userInfo: AuthHelpers.getUserInfo(),
-                logOut: AuthHelpers.logout
+                addFormVisible: false
+            }
+        },
+        methods: {
+            logout() {
+                AuthHelpers.logout();
+            },
+            changeAddFormVisible() {
+                this.addFormVisible = !this.addFormVisible;
+            }
+        },
+        computed: {
+            userName() {
+                const userData = AuthHelpers.getUserInfo();
+                return userData.surname + ' ' + userData.name[0] + '.';
             }
         }
     }

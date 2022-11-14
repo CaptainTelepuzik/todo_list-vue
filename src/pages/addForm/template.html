@@ -1,0 +1,11 @@
+<div class="AddForm__wrapper flex flex-center full-screen">
+    <div class="AddForm__block padding__container-m">
+    <div class="AddForm__header flex flex-justify-between full-width ">
+        <h3>Добавить задачу </h3>
+        <span class="cursor-pointer" @click="$emit('close')">X</span>
+    </div>
+        <input class="full-width" type="text" v-model="name" placeholder="Название задачи">
+        <button class="full-width" @click.prevent="submit">Добавить</button>
+
+    </div>
+</div>

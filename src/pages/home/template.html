@@ -1,8 +1,13 @@
-<div class="Home__wrapper full-size flex flex-center">
-    <div class="Home__header flex flex-column">
-    <button>+</button>
-        <button
-        @click="logOut()">Выйти</button>
-    <div class="User_name__wrapper">{{userInfo.surname}} {{userInfo.name}}</div>
+<div class="HomePage__wrapper full-screen">
+    <div class="HomePage__header flex full-width padding__container-l flex-justify-between">
+        <div class="HomePage__header-addBtn padding_container-xs
+                    flex flex-center cursor-pointer" @click="changeAddFormVisible()">
+            +
+        </div>
+        <div>
+            <span class="HomePage__header-userName">{{ userName }}</span>
+            <span @click="logout" class="HomePage__header-logout cursor-pointer">Выход</span>
+        </div>
     </div>
+    <AddForm v-if="addFormVisible" @close="changeAddFormVisible()"/>
 </div>
