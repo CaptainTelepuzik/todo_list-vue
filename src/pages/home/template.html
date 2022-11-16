@@ -9,5 +9,18 @@
             <span @click="logout" class="HomePage__header-logout cursor-pointer">Выход</span>
         </div>
     </div>
-    <AddForm v-if="addFormVisible" @close="changeAddFormVisible()"/>
+
+    <div class="HomePage__content full-size">
+        <div
+                v-for="item in items"
+                :key="item.id"
+        >
+            <Task
+                    :data="item"
+            />
+        </div>
+    </div>
+    <AddForm v-if="addFormVisible"
+             @close="changeAddFormVisible()"
+             @submit="getItems()"/>
 </div>
